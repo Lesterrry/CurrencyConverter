@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91o-q8-lPQ" userLabel="Picker">
+                                <rect key="frame" x="0.0" y="132" width="480" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="188" id="JVm-m9-pc2"/>
+                                </constraints>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZRK-Ve-PJj" userLabel="UpTextField">
+                                <rect key="frame" x="20" y="106.5" width="158" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="hR8-5f-4qr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no"/>
+                                <connections>
+                                    <action selector="upTextFieldEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="BnD-Av-ZFr"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djs-fY-Vyz">
+                                <rect key="frame" x="115" y="13" width="250" height="36.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2rk-5H-ukA" userLabel="DownTextField">
+                                <rect key="frame" x="302" y="106.5" width="158" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="50E-Wh-WIf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="downTextFieldEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="hfy-BV-pOr"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-XI-Srb" userLabel="UpButton">
+                                <rect key="frame" x="196" y="106.5" width="264" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="lVC-fs-hwI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" image="dollarsign.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xAl-fx-RAJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEm-ri-y5C" userLabel="DownButton">
+                                <rect key="frame" x="20" y="106.5" width="264" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Xha-Ph-USc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" image="rublesign.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nEs-QZ-5Hx"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="W9n-nP-9AD" userLabel="Relevance Stack View">
+                                <rect key="frame" x="143.5" y="58" width="193.5" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Relevance: 31.05.2020 00:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awu-Hx-Ryy" userLabel="Relevance Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2bB-gT-rr8" userLabel="Warning Mark">
+                                        <rect key="frame" x="170" y="1" width="0.0" height="18"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ne-YzW" userLabel="Activity Indicator">
+                                        <rect key="frame" x="173.5" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZRK-Ve-PJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Xg-HV-ZKE"/>
+                            <constraint firstItem="W9n-nP-9AD" firstAttribute="top" secondItem="Djs-fY-Vyz" secondAttribute="bottom" constant="8.5" id="7fo-KY-XoM"/>
+                            <constraint firstItem="ZRK-Ve-PJj" firstAttribute="top" secondItem="Djs-fY-Vyz" secondAttribute="bottom" constant="57" id="DcX-SR-qrD"/>
+                            <constraint firstItem="91o-q8-lPQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E63-pz-2b1"/>
+                            <constraint firstItem="91o-q8-lPQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HUY-L2-GL9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="91o-q8-lPQ" secondAttribute="trailing" id="I8M-Sq-auc"/>
+                            <constraint firstItem="2rk-5H-ukA" firstAttribute="leading" secondItem="EEm-ri-y5C" secondAttribute="trailing" constant="18" id="MI7-Mq-lOc"/>
+                            <constraint firstItem="Djs-fY-Vyz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ofs-MM-9Gf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2rk-5H-ukA" secondAttribute="trailing" constant="20" id="PKe-wX-ZRO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wq5-XI-Srb" secondAttribute="trailing" constant="20" id="SYM-gG-3GI"/>
+                            <constraint firstItem="EEm-ri-y5C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Yj8-HG-DI5"/>
+                            <constraint firstItem="91o-q8-lPQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="d1a-lD-4CH"/>
+                            <constraint firstItem="EEm-ri-y5C" firstAttribute="top" secondItem="Djs-fY-Vyz" secondAttribute="bottom" constant="141" id="fEa-Ui-rsP">
+                                <variation key="heightClass=compact-widthClass=compact" constant="57"/>
+                            </constraint>
+                            <constraint firstItem="wq5-XI-Srb" firstAttribute="leading" secondItem="ZRK-Ve-PJj" secondAttribute="trailing" constant="18" id="gHM-6j-5A2"/>
+                            <constraint firstItem="Djs-fY-Vyz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="lr2-KJ-Qaj"/>
+                            <constraint firstItem="W9n-nP-9AD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rhV-jb-uus"/>
+                            <constraint firstItem="2rk-5H-ukA" firstAttribute="top" secondItem="Djs-fY-Vyz" secondAttribute="bottom" constant="141" id="tMQ-V4-t2T">
+                                <variation key="heightClass=compact-widthClass=compact" constant="57"/>
+                            </constraint>
+                            <constraint firstItem="wq5-XI-Srb" firstAttribute="top" secondItem="Djs-fY-Vyz" secondAttribute="bottom" constant="57" id="uvo-SD-tNN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Eoo-ne-YzW" id="gkd-h3-vnt"/>
+                        <outlet property="downButton" destination="EEm-ri-y5C" id="c8G-oc-Dmh"/>
+                        <outlet property="downTextField" destination="2rk-5H-ukA" id="Rhm-Sf-D23"/>
+                        <outlet property="picker" destination="91o-q8-lPQ" id="yRE-T9-ZeN"/>
+                        <outlet property="relevanceLabel" destination="Awu-Hx-Ryy" id="yox-cF-JFW"/>
+                        <outlet property="upButton" destination="wq5-XI-Srb" id="TNc-d1-ts1"/>
+                        <outlet property="upTextField" destination="ZRK-Ve-PJj" id="swH-3O-opM"/>
+                        <outlet property="warningMark" destination="2bB-gT-rr8" id="hUa-m7-K26"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.23188405797103" y="124.55357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
+        <image name="rublesign.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
