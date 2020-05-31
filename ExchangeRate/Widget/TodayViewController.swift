@@ -38,7 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                         self.USDexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.rates.USD * 10000000000))
                         self.EURexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.rates.EUR * 10000000000))
                     }
-                }catch{
+                } catch {
                     self.USDexchangeRate.text = "--.-"
                 }
             }

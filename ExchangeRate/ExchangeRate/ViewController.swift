@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         var toDollar: Double
         var fromDollar: Double
     }
-    struct answerProp: Codable{
+    struct AnswerProp: Codable{
         let rates: rates
         struct rates: Codable {
             let EUR: Double
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var real = currency(name: "BRL Бразильский реал", iconName: "bahtsign.circle", toDollar: 0.1850, fromDollar: 5.4049)
     var rand = currency(name: "ZAR Южноафриканский рэнд", iconName: "r.circle", toDollar: 0.0570, fromDollar: 17.5524)
     
-    var currencies:[currency]
+    var currencies: [currency]
     var upCurrency: currency
     var downCurrency: currency
     var downSel = false;
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             picker.selectRow(downSel ? currencies.firstIndex(of: downCurrency)! :
                 currencies.firstIndex(of: upCurrency)!, inComponent: 0, animated: true)
             
-        }else{
+        } else{
             if !downSel {
                 upButton.setImage(UIImage(systemName: currencies[row].iconName), for: UIControl.State.normal)
                 upCurrency = currencies[row]
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-    init(){
+    init (){
         currencies = [dollar, ruble, euro, lira, yen, krona, real, rand]
         upCurrency = dollar
         downCurrency = ruble
@@ -122,13 +122,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     func update(reverse: Bool = false) {
         if !reverse{
-            let changed:Double = Double(upTextField.text!) ?? 0
-            let dollars:Double = changed * upCurrency.toDollar
+            let changed: Double = Double(upTextField.text!) ?? 0
+            let dollars: Double = changed * upCurrency.toDollar
             downTextField.text = String(format: "%.2f", dollars * downCurrency.fromDollar)
         }
-        else{
-            let changed:Double = Double(downTextField.text!) ?? 0
-            let dollars:Double = changed * downCurrency.toDollar
+        else {
+            let changed: Double = Double(downTextField.text!) ?? 0
+            let dollars: Double = changed * downCurrency.toDollar
             upTextField.text = String(format: "%.2f", dollars * upCurrency.fromDollar)
         }
     }
@@ -144,14 +144,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let task = URLSession.shared.dataTask(with: apiCurrenciesGetRequestURL) { (data, response, error) in
             guard let dataResponse = data,
                 error == nil && response != nil
-                else{
+                else {
                     self.showError()
                     return
             }
             
             let decoder = JSONDecoder()
-            do{
-                let obj = try decoder.decode(answerProp.self, from: dataResponse)
+            do {
+                let obj = try decoder.decode(AnswerProp.self, from: dataResponse)
                 let rates = [obj.rates.RUB, obj.rates.EUR, obj.rates.TRY, obj.rates.JPY, obj.rates.SEK, obj.rates.BRL, obj.rates.ZAR]
                 
                 for i in 0...rates.count - 1{
@@ -160,7 +160,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
                 self.upCurrency = self.currencies[0]
                 self.downCurrency = self.currencies[1]
-            }catch{
+            } catch {
                 self.showError()
             }
         }
