@@ -172,9 +172,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        relevanceLabel.text = "Data Relevance: " + String(year)
-            + "/" + String(month) + "/" + String(day) + " " + String(hour)
-            + ":" + String(minute)
+        let hours = hour > 10 ? String(hour) : "0" + String(hour)
+        let minutes = minute > 10 ? String(minute) : "0" + String(minute)
+        relevanceLabel.text = "Data Relevance: " + String(year)  + "/" + String(month) + "/" + String(day) + " " + hours + ":" + minutes
+        
         activityIndicator.stopAnimating()
     }
 }
