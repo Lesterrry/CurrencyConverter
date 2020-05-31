@@ -12,7 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     let apiCurrenciesGetRequestURL = URL(string: "https://api.exchangeratesapi.io/latest?symbols=EUR,USD&base=RUB")!
     struct AnswerProp: Codable {
-        let Rates: Rates
+        let rates: Rates
         struct Rates: Codable {
             let EUR: Double
             let USD: Double
@@ -24,7 +24,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         let task = URLSession.shared.dataTask(with: apiCurrenciesGetRequestURL) { (data, response, error) in
             let dataResponse = data
@@ -33,8 +32,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 do {
                     let obj = try decoder.decode(AnswerProp.self, from: dataResponse!)
                     DispatchQueue.main.async {
-                        self.USDexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.Rates.USD * 10000000000))
-                        self.EURexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.Rates.EUR * 10000000000))
+                        self.USDexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.rates.USD * 10000000000))
+                        self.EURexchangeRate.text = String(format: "%.1f", 10000000000 / (obj.rates.EUR * 10000000000))
                     }
                 } catch {
                     self.USDexchangeRate.text = "--.-"

@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         var fromDollar: Double
     }
     struct AnswerProp: Codable {
-        let Rates: Rates
+        let rates: Rates
         struct Rates: Codable {
             let EUR: Double
             let JPY: Double
@@ -26,7 +26,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let SEK: Double
         }
     }
-    
     //These exchange Rates valid for file creation date
     var dollar = Currency(name: "USD Американский доллар", iconName: "dollarsign.circle", toDollar: 1, fromDollar: 1)
     var ruble = Currency(name: "RUB Российский рубль", iconName: "rublesign.circle", toDollar: 0.014, fromDollar: 70.75)
@@ -68,8 +67,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if !downSel {
                 upButton.setImage(UIImage(systemName: currencies[row].iconName), for: UIControl.State.normal)
                 upCurrency = currencies[row]
-            }
-            else{
+            } else{
                 downButton.setImage(UIImage(systemName: currencies[row].iconName), for: UIControl.State.normal)
                 downCurrency = currencies[row]
             }
@@ -111,7 +109,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         picker.selectRow(currencies.firstIndex(of: upCurrency)!, inComponent: 0, animated: true)
     }
     @IBAction func downButtonPressed(_ sender: Any) {
-        view.endEditing(true);
+        view.endEditing(true)
         downSel = true
         picker.selectRow(currencies.firstIndex(of: downCurrency)!, inComponent: 0, animated: true)
     }
@@ -154,11 +152,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let decoder = JSONDecoder()
             do {
                 let obj = try decoder.decode(AnswerProp.self, from: dataResponse)
-                let Rates = [obj.Rates.RUB, obj.Rates.EUR, obj.Rates.TRY, obj.Rates.JPY,
-                             obj.Rates.SEK, obj.Rates.BRL, obj.Rates.ZAR]
+                let Rates = [obj.rates.RUB, obj.rates.EUR, obj.rates.TRY, obj.rates.JPY,
+                             obj.rates.SEK, obj.rates.BRL, obj.rates.ZAR]
                 
                 for i in 0...Rates.count - 1 {
-                    let newCurrency = Currency(name: self.currencies[i + 1].name, iconName: self.currencies[i + 1].iconName,
+                    let newCurrency = Currency(name: self.currencies[i + 1].name,
+                                               iconName: self.currencies[i + 1].iconName,
                                                toDollar: 1 / Rates[i], fromDollar: Rates[i])
                     self.currencies[i + 1] = newCurrency
                 }
