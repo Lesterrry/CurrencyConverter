@@ -32,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         widgetUpdate(label: EURexchangeRate, url: apiCurrenciesGetEURRequestURL)
     }
     
-    func widgetUpdate(label: UILabel, url: URL){
+    func widgetUpdate(label: UILabel, url: URL) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let dataResponse = data
             if error == nil && response != nil {

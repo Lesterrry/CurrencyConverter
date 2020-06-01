@@ -157,11 +157,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                              obj.conversion_rates.JPY, obj.conversion_rates.SEK, obj.conversion_rates.BRL,
                              obj.conversion_rates.ZAR]
                 
-                for i in 0...rates.count - 1 {
-                    let newCurrency = Currency(name: self.currencies[i + 1].name,
-                                               iconName: self.currencies[i + 1].iconName,
-                                               toDollar: 1 / rates[i], fromDollar: rates[i])
-                    self.currencies[i + 1] = newCurrency
+                for itr in 0...rates.count - 1 {
+                    let newCurrency = Currency(name: self.currencies[itr + 1].name,
+                                               iconName: self.currencies[itr + 1].iconName,
+                                               toDollar: 1 / rates[itr], fromDollar: rates[itr])
+                    self.currencies[itr + 1] = newCurrency
                 }
                 self.upCurrency = self.currencies[0]
                 self.downCurrency = self.currencies[1]
