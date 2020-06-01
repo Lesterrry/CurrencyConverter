@@ -15,7 +15,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         var fromDollar: Double
     }
     struct AnswerProp: Codable {
-        let rates: Rates
+        let time_last_update_utc: String
+        let conversion_rates: Rates
         struct Rates: Codable {
             let EUR: Double
             let JPY: Double
@@ -32,7 +33,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var euro = Currency(name: "EUR Евро", iconName: "eurosign.circle", toDollar: 1.11, fromDollar: 0.9)
     var lira = Currency(name: "TRY Турецкая лира", iconName: "lirasign.circle", toDollar: 0.15, fromDollar: 6.82)
     var yen = Currency(name: "JPY Японская иена", iconName: "yensign.circle", toDollar: 0.0093, fromDollar: 107.8)
-    var krona = Currency(name: "SEK Шведская крона", iconName: "colonCurrencysign.circle", toDollar: 0.1056,
+    var krona = Currency(name: "SEK Шведская крона", iconName: "coloncurrencysign.circle", toDollar: 0.1056,
                          fromDollar: 9.4701)
     var real = Currency(name: "BRL Бразильский реал", iconName: "bahtsign.circle", toDollar: 0.1850, fromDollar: 5.4049)
     var rand = Currency(name: "ZAR Южноафриканский рэнд", iconName: "r.circle", toDollar: 0.0570, fromDollar: 17.5524)
@@ -43,8 +44,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var downSel = false
     
     let apiCurrenciesGetRequestURL = URL(string:
-        "https://api.exchangeRatesapi.io/latest?symbols=RUB,EUR,TRY,JPY,SEK,BRL,ZAR&base=USD")!
-    let defaultRelevanceLabelData = "Data Relevance: 31.05.2020 00:59"
+        "https://v6.exchangerate-api.com/v6/93dace697f07f94d224cc61d/latest/USD")!
+    let defaultRelevanceLabelData = "Data Relevance: Thu, 31 May 2020 00:59:01"
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -152,8 +153,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let decoder = JSONDecoder()
             do {
                 let obj = try decoder.decode(AnswerProp.self, from: dataResponse)
-                let Rates = [obj.rates.RUB, obj.rates.EUR, obj.rates.TRY, obj.rates.JPY,
-                             obj.rates.SEK, obj.rates.BRL, obj.rates.ZAR]
+                let Rates = [obj.conversion_rates.RUB, obj.conversion_rates.EUR, obj.conversion_rates.TRY, obj.conversion_rates.JPY,
+                             obj.conversion_rates.SEK, obj.conversion_rates.BRL, obj.conversion_rates.ZAR]
                 
                 for i in 0...Rates.count - 1 {
                     let newCurrency = Currency(name: self.currencies[i + 1].name,
@@ -163,22 +164,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
                 self.upCurrency = self.currencies[0]
                 self.downCurrency = self.currencies[1]
+                DispatchQueue.main.async {
+                    self.relevanceLabel.text = "Data Relevance: " + obj.time_last_update_utc.split(separator: "+")[0]
+                }
             } catch {
                 self.showError()
             }
         }
         task.resume()
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let hours = hour >= 10 ? String(hour) : "0" + String(hour)
-        let minutes = minute >= 10 ? String(minute) : "0" + String(minute)
-        relevanceLabel.text = "Data Relevance: " + String(year)  + "/" + String(month) +
-            "/" + String(day) + " " + hours + ":" + minutes
+        
         
         activityIndicator.stopAnimating()
     }
