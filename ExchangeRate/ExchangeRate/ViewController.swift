@@ -153,13 +153,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let decoder = JSONDecoder()
             do {
                 let obj = try decoder.decode(AnswerProp.self, from: dataResponse)
-                let Rates = [obj.conversion_rates.RUB, obj.conversion_rates.EUR, obj.conversion_rates.TRY, obj.conversion_rates.JPY,
-                             obj.conversion_rates.SEK, obj.conversion_rates.BRL, obj.conversion_rates.ZAR]
+                let rates = [obj.conversion_rates.RUB, obj.conversion_rates.EUR, obj.conversion_rates.TRY,
+                             obj.conversion_rates.JPY, obj.conversion_rates.SEK, obj.conversion_rates.BRL,
+                             obj.conversion_rates.ZAR]
                 
-                for i in 0...Rates.count - 1 {
+                for i in 0...rates.count - 1 {
                     let newCurrency = Currency(name: self.currencies[i + 1].name,
                                                iconName: self.currencies[i + 1].iconName,
-                                               toDollar: 1 / Rates[i], fromDollar: Rates[i])
+                                               toDollar: 1 / rates[i], fromDollar: rates[i])
                     self.currencies[i + 1] = newCurrency
                 }
                 self.upCurrency = self.currencies[0]
@@ -172,8 +173,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
         }
         task.resume()
-        
-        
         activityIndicator.stopAnimating()
     }
 }
