@@ -94,7 +94,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         picker.delegate = self
         picker.dataSource = self
         apiRefresh()
-
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
@@ -179,7 +178,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 self.showError()
             }
         }
-        task.resume();
+        task.resume()
         activityIndicator.stopAnimating()
     }
 }

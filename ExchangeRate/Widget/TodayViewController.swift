@@ -34,7 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
        performUpdate()
     }
     
-    func performUpdate(){
+    func performUpdate() {
         widgetUpdate(label: USDexchangeRate, url: apiCurrenciesGetUSDRequestURL)
         widgetUpdate(label: EURexchangeRate, url: apiCurrenciesGetEURRequestURL)
     }
