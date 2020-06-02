@@ -22,17 +22,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
        }
     @IBOutlet weak var USDexchangeRate: UILabel!
     @IBOutlet weak var EURexchangeRate: UILabel!
+    @IBAction func updButtonPressed(_ sender: Any) {
+        performUpdate()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
+       performUpdate()
+    }
+    
+    func performUpdate(){
         widgetUpdate(label: USDexchangeRate, url: apiCurrenciesGetUSDRequestURL)
         widgetUpdate(label: EURexchangeRate, url: apiCurrenciesGetEURRequestURL)
     }
     
     func widgetUpdate(label: UILabel, url: URL) {
+        label.text = "--.-"
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let dataResponse = data
             if error == nil && response != nil {

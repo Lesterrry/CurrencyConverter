@@ -94,6 +94,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         picker.delegate = self
         picker.dataSource = self
         apiRefresh()
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        
+    }
+    @IBAction func updateButton(_ sender: Any) {
+        apiRefresh()
     }
     @IBOutlet weak var upTextField: UITextField!
     @IBOutlet weak var picker: UIPickerView!
@@ -144,14 +152,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         relevanceLabel.text = "Updating data..."
         let task = URLSession.shared.dataTask(with: apiCurrenciesGetRequestURL) { (data, response, error) in
             guard let dataResponse = data,
-                error == nil && response != nil
-                else {
-                    self.showError()
-                    return
+            error == nil && response != nil
+            else {
+                self.showError()
+                return
             }
-            
-            let decoder = JSONDecoder()
             do {
+                let decoder = JSONDecoder()
                 let obj = try decoder.decode(AnswerProp.self, from: dataResponse)
                 let rates = [obj.conversion_rates.RUB, obj.conversion_rates.EUR, obj.conversion_rates.TRY,
                              obj.conversion_rates.JPY, obj.conversion_rates.SEK, obj.conversion_rates.BRL,
@@ -172,7 +179,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 self.showError()
             }
         }
-        task.resume()
+        task.resume();
         activityIndicator.stopAnimating()
     }
 }
