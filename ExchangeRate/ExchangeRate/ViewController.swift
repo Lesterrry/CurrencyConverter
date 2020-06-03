@@ -123,9 +123,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func upTextFieldEdited(_ sender: Any) {
+        upTextField.text = upTextField.text?.replacingOccurrences(of: ",", with: ".")
         update()
     }
     @IBAction func downTextFieldEdited(_ sender: Any) {
+        downTextField.text = downTextField.text?.replacingOccurrences(of: ",", with: ".")
         update(reverse: true)
     }
     func update(reverse: Bool = false) {
