@@ -154,8 +154,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     func apiRefresh() {
-        var successfulFetch = false;
-        var myRequest = URLRequest(url:apiCurrenciesGetRequestURL)
+        var successfulFetch = false
+        var myRequest = URLRequest(url: apiCurrenciesGetRequestURL)
         myRequest.httpMethod = "GET"
         myRequest.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         

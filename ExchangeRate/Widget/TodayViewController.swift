@@ -40,7 +40,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetUpdate(label: UILabel, url: URL) {
-        var myRequest = URLRequest(url:url)
+        var myRequest = URLRequest(url: url)
         myRequest.httpMethod = "GET"
         myRequest.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         
