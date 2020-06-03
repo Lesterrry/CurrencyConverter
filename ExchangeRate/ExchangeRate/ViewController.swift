@@ -187,7 +187,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 DispatchQueue.main.async {
                     self.relevanceLabel.text = "Data Relevance: " + obj.time_last_update_utc.split(separator: "+")[0]
                 }
-                print(dataResponse)
                 successfulFetch = true
                 self.hideError()
             } catch {
