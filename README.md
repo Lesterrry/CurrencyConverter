@@ -1,7 +1,7 @@
 # CurrencyConverter – Мультивалютный Конвертер
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a09523c1ea8948978858be2d10fbe7fb)](https://www.codacy.com/manual/Lesterrry/CurrencyConverter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Lesterrry/CurrencyConverter&amp;utm_campaign=Badge_Grade)
 - Выполнены все 4 этапа конкурса
-- Курсы валют автоматически обновляются при каждом запуске приложения и при нажатии на соответсвующую кнопку
+- Курсы валют автоматически обновляются при каждом запуске приложения и при нажатии на соответствующую кнопку
 - Интерфейс адаптивен под любые размер и ориентацию экрана, тему
 - Дополнительно добавлен виджет, отслеживающий курс рубля в реальном времени
 ### Пояснения
