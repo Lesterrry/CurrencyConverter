@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="landscape" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ExchangeRate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91o-q8-lPQ" userLabel="Picker">
-                                <rect key="frame" x="0.0" y="132" width="480" height="188"/>
+                                <rect key="frame" x="0.0" y="674" width="414" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="188" id="JVm-m9-pc2"/>
                                 </constraints>
                             </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZRK-Ve-PJj" userLabel="UpTextField">
-                                <rect key="frame" x="20" y="106.5" width="158" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZRK-Ve-PJj" userLabel="UpTextField">
+                                <rect key="frame" x="20" y="150.66666666666666" width="158" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="158" id="hR8-5f-4qr"/>
                                 </constraints>
@@ -33,13 +33,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djs-fY-Vyz">
-                                <rect key="frame" x="115" y="13" width="250" height="36.5"/>
+                                <rect key="frame" x="82" y="57" width="250" height="36.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2rk-5H-ukA" userLabel="DownTextField">
-                                <rect key="frame" x="302" y="106.5" width="158" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2rk-5H-ukA" userLabel="DownTextField">
+                                <rect key="frame" x="236" y="234.66666666666666" width="158" height="33.999999999999972"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="158" id="50E-Wh-WIf"/>
                                 </constraints>
@@ -50,7 +50,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-XI-Srb" userLabel="UpButton">
-                                <rect key="frame" x="196" y="106.5" width="264" height="34"/>
+                                <rect key="frame" x="196" y="150.66666666666666" width="198" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lVC-fs-hwI"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEm-ri-y5C" userLabel="DownButton">
-                                <rect key="frame" x="20" y="106.5" width="264" height="34"/>
+                                <rect key="frame" x="20" y="234.66666666666666" width="198" height="33.999999999999972"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Xha-Ph-USc"/>
                                 </constraints>
@@ -76,20 +76,27 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="W9n-nP-9AD" userLabel="Relevance Stack View">
-                                <rect key="frame" x="143.5" y="58" width="193.5" height="20"/>
+                                <rect key="frame" x="97.000000000000014" y="102.33333333333333" width="220.33333333333337" height="20.333333333333329"/>
                                 <subviews>
+                                    <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jD-sx-yvL">
+                                        <rect key="frame" x="0.0" y="0.0" width="19.666666666666668" height="20.333333333333332"/>
+                                        <state key="normal" image="arrow.counterclockwise.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="updateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMk-NN-lt2"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Relevance: 31.05.2020 00:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awu-Hx-Ryy" userLabel="Relevance Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="166.5" height="20"/>
+                                        <rect key="frame" x="26.666666666666671" y="0.0" width="166.66666666666663" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2bB-gT-rr8" userLabel="Warning Mark">
-                                        <rect key="frame" x="170" y="1" width="0.0" height="18"/>
+                                        <rect key="frame" x="196.66666666666669" y="1.3333333333333321" width="0.0" height="18"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ne-YzW" userLabel="Activity Indicator">
-                                        <rect key="frame" x="173.5" y="0.0" width="20" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ne-YzW" userLabel="Activity Indicator">
+                                        <rect key="frame" x="200.33333333333331" y="0.0" width="20" height="20.333333333333332"/>
                                     </activityIndicatorView>
                                 </subviews>
                             </stackView>
@@ -138,6 +145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="rublesign.circle" catalog="system" width="128" height="121"/>
