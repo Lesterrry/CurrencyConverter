@@ -144,17 +144,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         DispatchQueue.main.async {
             self.relevanceLabel.text = self.defaultRelevanceLabelData
             self.warningMark.isHidden = false
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    func hideError() {
+        DispatchQueue.main.async {
+            self.warningMark.isHidden = true
+            self.activityIndicator.stopAnimating()
         }
     }
     func apiRefresh() {
-        activityIndicator.startAnimating()
-        relevanceLabel.text = "Updating data..."
-        let task = URLSession.shared.dataTask(with: apiCurrenciesGetRequestURL) { (data, response, error) in
+        var successfulFetch = false;
+        var myRequest = URLRequest(url:apiCurrenciesGetRequestURL)
+        myRequest.httpMethod = "GET"
+        myRequest.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        
+        let task = URLSession.shared.dataTask(with: myRequest) { (data, response, error)
+            in
             guard let dataResponse = data,
-            error == nil && response != nil
-            else {
-                self.showError()
-                return
+                error == nil && response != nil
+                else {
+                    self.showError()
+                    return
             }
             do {
                 let decoder = JSONDecoder()
@@ -174,11 +185,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 DispatchQueue.main.async {
                     self.relevanceLabel.text = "Data Relevance: " + obj.time_last_update_utc.split(separator: "+")[0]
                 }
+                print(dataResponse)
+                successfulFetch = true
+                self.hideError()
             } catch {
                 self.showError()
             }
         }
-        task.resume()
-        activityIndicator.stopAnimating()
+        if !successfulFetch {
+            self.activityIndicator.startAnimating()
+            task.resume()
+        } else {
+            task.cancel()
+            self.hideError()
+        }
     }
 }

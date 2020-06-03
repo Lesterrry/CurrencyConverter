@@ -40,8 +40,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetUpdate(label: UILabel, url: URL) {
+        var myRequest = URLRequest(url:url)
+        myRequest.httpMethod = "GET"
+        myRequest.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        
         label.text = "--.-"
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: myRequest) { (data, response, error) in
             let dataResponse = data
             if error == nil && response != nil {
                 let decoder = JSONDecoder()

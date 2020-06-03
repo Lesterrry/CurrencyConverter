@@ -95,7 +95,7 @@
                                         <rect key="frame" x="196.66666666666669" y="1.3333333333333321" width="0.0" height="18"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ne-YzW" userLabel="Activity Indicator">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Eoo-ne-YzW" userLabel="Activity Indicator">
                                         <rect key="frame" x="200.33333333333331" y="0.0" width="20" height="20.333333333333332"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -146,7 +146,7 @@
     </scenes>
     <resources>
         <image name="arrow.counterclockwise.circle" catalog="system" width="128" height="121"/>
-        <image name="dollarsign.circle" catalog="system" width="32" height="32"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="rublesign.circle" catalog="system" width="128" height="121"/>
     </resources>
