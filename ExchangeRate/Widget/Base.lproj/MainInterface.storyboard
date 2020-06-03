@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -32,7 +32,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--.-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0no-t2-Xwz">
-                                <rect key="frame" x="199.5" y="26" width="69" height="74"/>
+                                <rect key="frame" x="157" y="26" width="111" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="111" id="gQg-wV-0Hc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="54"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,13 +63,13 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4Vm-Ci-fQy" secondAttribute="trailing" constant="18" id="2dc-u5-lo2"/>
                             <constraint firstItem="4Vm-Ci-fQy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="8" symbolic="YES" id="4hO-Nu-Vh2"/>
-                            <constraint firstItem="0no-t2-Xwz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="8" symbolic="YES" id="Dc7-yj-mIa"/>
                             <constraint firstItem="K3b-Hn-3Ug" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="I17-ct-F8R"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="0no-t2-Xwz" secondAttribute="trailing" constant="51.5" id="KPa-2s-Hvq"/>
+                            <constraint firstItem="0no-t2-Xwz" firstAttribute="top" secondItem="VGV-Bn-ID0" secondAttribute="bottom" constant="3.5" id="JGa-ec-I3y"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K3b-Hn-3Ug" secondAttribute="trailing" constant="1" id="Mep-E6-kkX"/>
-                            <constraint firstItem="0no-t2-Xwz" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="26" id="Oth-me-q5v"/>
+                            <constraint firstItem="0no-t2-Xwz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="3" id="Tj7-Ge-QwY"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="37" id="Wjf-Kc-ixK"/>
                             <constraint firstItem="VGV-Bn-ID0" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="XBI-4q-HTs"/>
+                            <constraint firstItem="4Vm-Ci-fQy" firstAttribute="leading" secondItem="0no-t2-Xwz" secondAttribute="trailing" constant="5" id="Zyb-tj-HHE"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-lX-VpI"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="123" id="dLv-P0-qdg"/>
                             <constraint firstItem="4Vm-Ci-fQy" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="37" id="vAB-FK-5Ft"/>
